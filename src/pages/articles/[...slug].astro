@@ -1,0 +1,18 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+
+const {slug } = Astro.params;
+
+if (slug === undefined) {
+    throw new Error('Slug is required');
+}
+
+const entry = await getEntry('blog', slug);
+console.log(entry);
+---
+
+<Layout>
+ 
+  <h1>Article</h1>
+</Layout>
